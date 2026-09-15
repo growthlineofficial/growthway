@@ -1,0 +1,301 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AVI OBEROI™ | Cricket Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;width:100%;overflow-x:hidden}
+body{
+  font-family:'DM Sans',sans-serif;color:#f5f2ea;background:#080808;
+  background-image:
+    radial-gradient(circle at 10% 5%,rgba(198,165,92,.10),transparent 28%),
+    radial-gradient(circle at 92% 90%,rgba(198,165,92,.07),transparent 30%);
+}
+.wrapper{position:relative;z-index:5;min-height:100vh;width:100%;display:flex;flex-direction:column}
+.dots-bg,.grain{display:none}
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+
+.ticker{
+  background:#0b0b0b;border-bottom:1px solid rgba(198,165,92,.22);
+  overflow:hidden;white-space:nowrap;flex-shrink:0
+}
+.ticker-inner{display:inline-block;animation:tick 25s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.top-cta{display:none;justify-content:center;padding:20px 18px 6px;position:relative;z-index:10}
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:500px;
+  min-height:52px;border:1px solid rgba(216,190,125,.55);
+  background:linear-gradient(135deg,#c8a75b,#e1c987 52%,#a9833c);
+  color:#0b0b0b;font-weight:800;font-size:.82rem;letter-spacing:.14em;
+  border-radius:6px;text-decoration:none;
+  box-shadow:0 12px 35px rgba(0,0,0,.45),0 0 28px rgba(198,165,92,.08);
+  transition:transform .2s,filter .2s;
+  animation:ctaPulse 2.4s ease-in-out infinite
+}
+.cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.cta:active{transform:scale(.98)}
+.cta svg{width:18px;height:18px;flex-shrink:0}
+@keyframes ctaPulse{
+  0%,100%{transform:scale(1);box-shadow:0 12px 35px rgba(0,0,0,.45),0 0 18px rgba(198,165,92,.08)}
+  50%{transform:scale(1.025);box-shadow:0 14px 40px rgba(0,0,0,.5),0 0 32px rgba(216,190,125,.35)}
+}
+
+.hero{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:22px 18px 24px;position:relative
+}
+.hero-card{
+  width:min(760px,100%);position:relative;overflow:hidden;
+  border:1px solid rgba(198,165,92,.24);background:rgba(15,15,14,.94);
+  padding:36px 26px 27px;
+  box-shadow:0 35px 100px rgba(0,0,0,.65)
+}
+.hero-card:before{
+  content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.045);
+  pointer-events:none
+}
+.hero-card:after{
+  content:"";position:absolute;top:0;left:15%;width:70%;height:1px;
+  background:linear-gradient(90deg,transparent,#d8bd7b,transparent)
+}
+.jersey-num{
+  position:absolute;right:-30px;top:-25px;font-family:'Playfair Display',serif;
+  font-size:10rem;font-weight:700;line-height:1;color:rgba(198,165,92,.035);
+  pointer-events:none;user-select:none
+}
+
+.brand-row{
+  position:relative;z-index:2;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;margin-bottom:22px
+}
+.heart{
+  width:120px;height:120px;display:grid;place-items:center;
+  border:1px solid rgba(198,165,92,.38);background:#11110f;
+  box-shadow:inset 0 0 0 4px rgba(198,165,92,.035);
+  animation:profileRing 2.2s ease-in-out infinite;
+  border-radius:50%;overflow:hidden;position:relative;
+}
+.heart img{object-fit:cover;border-radius:50%;animation:profileFloat 2.2s ease-in-out infinite}
+@keyframes profileRing{
+  0%,100%{transform:scale(1);box-shadow:inset 0 0 0 4px rgba(198,165,92,.035),0 0 0 0 rgba(216,190,125,.25)}
+  50%{transform:scale(1.04);box-shadow:inset 0 0 0 4px rgba(198,165,92,.06),0 0 0 10px rgba(216,190,125,.08)}
+}
+@keyframes profileFloat{0%,100%{transform:scale(1)}50%{transform:scale(1.05)} }
+.ch-label{
+  font-size:9px;letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(245,242,234,.48)
+}
+
+.title-wrap{position:relative;z-index:2;text-align:center}
+.hl-malik{
+  font-family:'Playfair Display',serif;font-weight:600;
+  font-size:38px;line-height:.95;letter-spacing:.015em;color:#f7f3e9
+}
+.hl-mumbai{
+  display:inline-block;margin-top:13px;padding:5px 16px 6px;
+  border-top:1px solid rgba(198,165,92,.5);border-bottom:1px solid rgba(198,165,92,.5);
+  font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(.8rem,3vw,1rem);
+  line-height:1;letter-spacing:.34em;color:#cdb77d
+}
+.name-mark{font-size:.42em;vertical-align:top;letter-spacing:0;color:#cdb77d;margin-left:3px}
+
+.eyebrow{
+  position:relative;z-index:2;margin:27px auto 10px;text-align:center;
+  color:#cdb77d;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase
+}
+.statement{
+  position:relative;z-index:2;text-align:center;max-width:550px;margin:0 auto;
+  font-family:'Playfair Display',serif;font-size:clamp(1.05rem,3.5vw,1.55rem);
+  line-height:1.35;color:#f4f0e6
+}
+.statement em{font-style:normal;color:#cdb77d}
+.subtext{
+  position:relative;z-index:2;max-width:500px;margin:13px auto 0;text-align:center;
+  font-size:.78rem;line-height:1.75;color:rgba(245,242,234,.52)
+}
+
+.heart-rule{display:flex;align-items:center;gap:10px;margin:0 auto 12px;max-width:390px;position:relative;z-index:2}
+.hr-line{height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(198,165,92,.38))}
+.hr-line:last-child{background:linear-gradient(90deg,rgba(198,165,92,.38),transparent)}
+.hr-heart{font-size:8px;color:#cdb77d}
+
+.feat-strip{
+  position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:8px;margin-top:23px;width:100%
+}
+.feat-item{
+  min-height:74px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.07);background:#11110f;
+  padding:10px 5px;text-align:center
+}
+.feat-icon{font-size:18px;margin-bottom:6px;filter:grayscale(1)}
+.feat-lbl{font-size:8px;color:rgba(245,242,234,.55);text-transform:uppercase;letter-spacing:.16em;font-weight:700}
+
+.stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;width:100%}
+.stat-card{
+  border-top:1px solid rgba(198,165,92,.2);background:rgba(255,255,255,.018);
+  padding:13px 5px;text-align:center
+}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.12rem;color:#d5bd80;line-height:1}
+.stat-lbl{font-size:7px;color:rgba(245,242,234,.28);text-transform:uppercase;letter-spacing:.16em;margin-top:5px}
+
+.bottom{
+  position:relative;z-index:2;padding:0;margin-top:18px!important;display:flex;
+  flex-direction:column;gap:10px;border:0;background:transparent;backdrop-filter:none
+}
+.bottom .cta{display:flex}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 2px}
+.meta span,.meta p{font-size:9px!important;color:rgba(245,242,234,.28)!important}
+.ping{animation:ping 1.5s cubic-bezier(0,0,.2,1) infinite;background:#cdb77d!important}
+@keyframes ping{75%,100%{transform:scale(2.1);opacity:0}}
+
+@media(max-width:520px){
+  .hero{padding:16px 12px 20px}
+  .hero-card{padding:29px 16px 20px}
+  .hero-card:before{inset:8px}
+  .feat-item{min-height:68px}
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1758295271845672');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1758295271845672&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+  <div class="orb" style="width:360px;height:360px;background:rgba(198,165,92,.08);top:-140px;right:-120px;"></div>
+  <div class="orb" style="width:300px;height:300px;background:rgba(198,165,92,.055);bottom:-130px;left:-100px;"></div>
+
+  <div class="wrapper">
+    <div class="ticker py-1.5">
+      <div class="ticker-inner" style="font-size:10px;font-weight:700;letter-spacing:0.18em;color:rgba(216,190,125,.72);">
+        <span style="padding:0 18px;">AVI OBEROI™ •</span>
+        <span style="padding:0 18px;">CRICKET INTELLIGENCE •</span>
+        <span style="padding:0 18px;">READ THE GAME •</span>
+        <span style="padding:0 18px;">PLAY IT COLD •</span>
+        <span style="padding:0 18px;">DISCIPLINE OVER NOISE •</span>
+        <span style="padding:0 18px;">AVI OBEROI™ •</span>
+        <span style="padding:0 18px;">CRICKET INTELLIGENCE •</span>
+        <span style="padding:0 18px;">READ THE GAME •</span>
+        <span style="padding:0 18px;">PLAY IT COLD •</span>
+        <span style="padding:0 18px;">DISCIPLINE OVER NOISE •</span>
+      </div>
+    </div>
+
+    <div class="top-cta">
+      <a href="https://t.me/+JTrmHHtTLi9hOWU1" target="_blank" class="cta">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        ENTER THE CHANNEL
+      </a>
+    </div>
+
+    <div class="hero">
+      <div class="hero-card">
+        <div class="jersey-num">A</div>
+
+        <div class="brand-row">
+          <div class="heart"><img src="oberoi.jpg" alt="AVI OBEROI"></div>
+          </div>
+
+        <div class="title-wrap">
+          <div class="hl-malik">AVI OBEROI<span class="name-mark">™</span></div>
+          <div class="hl-mumbai">CRICKET • ANALYSIS</div>
+        </div>
+
+        <div class="eyebrow">THE GAME REWARDS COMPOSURE</div>
+
+        <p class="statement">
+          Cricket is a game of <em>patience.</em><br>
+          We play it <em>cold.</em> 🆒
+        </p>
+
+        <p class="subtext">
+          Sharp reads. Calm decisions. No unnecessary noise.
+          We study the match, understand the momentum and stay disciplined when the pressure rises.
+        </p>
+
+        <div class="feat-strip">
+          <div class="feat-item">
+            <div class="feat-icon">◉</div>
+            <div class="feat-lbl">Match Reads</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon">◈</div>
+            <div class="feat-lbl">Deep Analysis</div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon">⌁</div>
+            <div class="feat-lbl">Live Updates</div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-num">CALM</div>
+            <div class="stat-lbl">Mindset</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">SHARP</div>
+            <div class="stat-lbl">Analysis</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">LIVE</div>
+            <div class="stat-lbl">Insights</div>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <div class="heart-rule">
+            <div class="hr-line"></div>
+            <div class="hr-heart">◆</div>
+            <div class="hr-heart">◆</div>
+            <div class="hr-heart">◆</div>
+            <div class="hr-line"></div>
+          </div>
+
+          <a href="https://t.me/+JTrmHHtTLi9hOWU1" target="_blank" class="cta">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            JOIN THE CHANNEL
+          </a>
+
+          <div class="meta">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="position:relative;display:inline-flex;width:7px;height:7px;">
+                <span class="ping" style="position:absolute;inset:0;border-radius:50%;opacity:.75;display:inline-flex;width:100%;height:100%;"></span>
+                <span style="position:relative;width:7px;height:7px;border-radius:50%;background:#cdb77d;display:inline-flex;flex-shrink:0;"></span>
+              </span>
+              <span>CHANNEL ACTIVE</span>
+            </div>
+            <p>DISCIPLINE · PATIENCE · PRECISION</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
